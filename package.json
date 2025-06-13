@@ -1,0 +1,32 @@
+{
+  "name": "yes",
+  "version": "1.0.0",
+  "description": "Food Store is your go-to app for ordering food from top local restaurants.",
+ "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test" : "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yashaswipatil/foodStore.git"
+  },
+  "keywords": [
+    "food",
+    "swiggy",
+    "clonelike"
+  ],
+  "author": "Yesashwini Patil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yashaswipatil/foodStore/issues"
+  },
+  "homepage": "https://github.com/yashaswipatil/foodStore#readme",
+  "devDependencies": {
+    "parcel": "^2.15.2"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
+}
