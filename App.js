@@ -6,13 +6,15 @@ const resList = [
     id: "1",
     resName: "meghana foods",
     cuisine: "North Indian , South Indian , Asian",
+    img: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2025/1/15/fb40dee9-b4c6-454e-8c79-dbdff33d7b36_1468.jpg",
     averageRating: "4.4",
     duration: "38",
   },
   {
     id: "2",
     resName: "KFC",
-    cuisine: "Burgers, Fast Food, Rolls & Wraps Central Bangalore",
+    img: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/12/9/4398bfb2-6948-484a-9613-2d7628a2457a_588619.JPG",
+    cuisine: "Burgers, Fast Food, Rolls & Wraps",
     averageRating: "4.4",
     duration: "35",
   },
@@ -20,6 +22,7 @@ const resList = [
   {
     id: "3",
     resName: "therobrama",
+    img: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2025/6/11/5cdd5313-9777-4d55-800c-2cff2fa68ce8_426730.jpg",
     cuisine: "Desserts , beverages",
     averageRating: "4.7",
     duration: "25",
@@ -47,15 +50,11 @@ const Header = () => {
   );
 };
 
-const RestaurantCard = ({resData}) => {
-   const { resName , cuisine , averageRating , duration} = resData;
+const RestaurantCard = ({ resData }) => {
+  const { resName, cuisine, averageRating, duration, img } = resData;
   return (
     <div className="res-card">
-      <img
-        className="res-img"
-        alt="res-img"
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2025/6/6/fd0351d2-f8a7-4b61-baec-886ab1e98170_393107.jpg"
-      />
+      <img className="res-img" alt="res-img" src={img} />
       <h3>{resName}</h3>
       <h4>{cuisine}</h4>
       <h4>{averageRating} Star</h4>
