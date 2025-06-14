@@ -2,10 +2,10 @@
   "name": "yes",
   "version": "1.0.0",
   "description": "Food Store is your go-to app for ordering food from top local restaurants.",
- "scripts": {
+  "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
-    "test" : "jest"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/yashaswipatil/foodStore#readme",
   "devDependencies": {
+    "eslint": "^9.29.0",
     "parcel": "^2.15.2"
   },
   "dependencies": {
