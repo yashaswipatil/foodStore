@@ -65,3 +65,8 @@
 .search {
     padding: 1rem;
 }
+
+.Top-rated {
+    margin: 1rem;
+    cursor: pointer;
+}
