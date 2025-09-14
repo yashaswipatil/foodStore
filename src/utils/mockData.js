@@ -38,7 +38,7 @@ const resList = [
     resName: "Truffles",
     cuisine: "American, Fast Food",
     img: CDN_URL_5,
-    averageRating: "4.5",
+    averageRating: "2.5",
     duration: "28",
   },
   {
@@ -46,7 +46,7 @@ const resList = [
     resName: "Domino's Pizza",
     cuisine: "Pizzas, Italian",
     img: CDN_URL_6,
-    averageRating: "4.0",
+    averageRating: "1.0",
     duration: "22",
   },
   {
@@ -54,7 +54,7 @@ const resList = [
     resName: "Biriyani Blues",
     cuisine: "Biryani, Mughlai",
     img: CDN_URL_7,
-    averageRating: "4.3",
+    averageRating: "3.3",
     duration: "27",
   },
   {
@@ -62,7 +62,7 @@ const resList = [
     resName: "A2B - Adyar Ananda Bhavan",
     cuisine: "South Indian, Sweets",
     img: CDN_URL_8,
-    averageRating: "4.1",
+    averageRating: "3.1",
     duration: "20",
   },
   {
