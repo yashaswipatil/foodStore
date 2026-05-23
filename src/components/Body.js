@@ -1,34 +1,46 @@
 import React, { useEffect, useState } from "react";
 
 import RestaurantCard from "./RestaurantCard";
-
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
 
   useEffect(() => {
     fetchData();
-  },[])
+  }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.97530&lng=77.59100&collection=83639&tags=layout_CCS_Biryani&sortBy=&filters=&type=rcv2&offset=0&page_type=null"
-    );
+    const data = await fetch("https://namastedev.com/api/v1/listRestaurants");
 
     const json = await data.json();
-    
-    console.log(json?.data?.cards);
-    setRestaurantList(json?.data?.cards);
-  }
 
-  return (
+    console.log(
+      "99",
+      json?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants,
+    );
+    setRestaurantList(
+      json?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants,
+    );
+  };
+
+  return restaurantList.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="filter">
+        <div className="search">
+          {" "}
+          <input type="search" className="search-box" />
+          <button>Search</button>
+        </div>
         <button
           className="Top-rated"
           onClick={() => {
             const filteredList = restaurantList.filter(
-              (res) => res.averageRating > 4
+              (res) => res.averageRating > 4,
             );
             setRestaurantList(filteredList);
             console.log(filteredList);
@@ -38,11 +50,8 @@ const Body = () => {
         </button>
       </div>
       <div className="res-container">
-        {restaurantList.map((restaurant , i) => (
-          <RestaurantCard
-            key={i}
-            resData={restaurant}
-          />
+        {restaurantList.map((restaurant, index) => (
+          <RestaurantCard key={index} resData={restaurant} index={index} />
         ))}
       </div>
     </div>

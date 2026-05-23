@@ -1,7 +1,8 @@
 import React from "react";
+import { CDN_URLS } from "../utils/constants";
 
-const RestaurantCard = ({ resData }) => {
-  const info = resData?.card?.card?.info;
+const RestaurantCard = ({ resData , index}) => {
+  const info = resData?.info;
 
   if (!info) {
     return null; // Render nothing if info is missing
@@ -22,9 +23,7 @@ const RestaurantCard = ({ resData }) => {
       <img
         className="res-img"
         alt={name}
-        src={
-          cloudinaryImageId ? `https://example.com/${cloudinaryImageId}` : ""
-        }
+        src={CDN_URLS[index % CDN_URLS.length]}
       />
       <h3>{name}</h3>
       <h4>{cuisines[0] || "Various Cuisines"}</h4>
