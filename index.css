@@ -188,3 +188,16 @@
     background: #ddd6fe;
     transform: scale(0.97);
 }
+
+.no-results {
+    text-align: center;
+    padding: 3rem;
+    color: #888;
+    width: 100%;
+}
+
+.no-results h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: #444;
+}
