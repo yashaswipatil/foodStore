@@ -9,6 +9,7 @@ const Body = () => {
   const [isTopRated, setIsTopRated] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetchData();
@@ -16,16 +17,36 @@ const Body = () => {
 
   const fetchData = async () => {
     setIsLoading(true);
-    const data = await fetch("https://namastedev.com/api/v1/listRestaurants");
-    const json = await data.json();
+    setError(null);
 
-    const restaurants =
-      json?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants;
+    try {
+      const response = await fetch(
+        "https://corsproxy.io/?https://namastedev.com/api/v1/listRestaurants",
+      );
 
-    setOriginalList(restaurants);
-    setRestaurantList(restaurants);
-    setIsLoading(false);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const json = await response.json();
+
+      const restaurants =
+        json?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants;
+
+      if (!restaurants || !Array.isArray(restaurants)) {
+        throw new Error("Invalid data structure received from API");
+      }
+
+      setOriginalList(restaurants);
+      setRestaurantList(restaurants);
+    } catch (err) {
+      setError(err.message || "Failed to fetch restaurants");
+      setOriginalList([]);
+      setRestaurantList([]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const applyFilters = (text, topRated) => {
@@ -57,7 +78,9 @@ const Body = () => {
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
-              applyFilters(e.target.value, isTopRated);
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") applyFilters(searchText, isTopRated);
             }}
           />
           <button onClick={() => applyFilters(searchText, isTopRated)}>
@@ -75,18 +98,24 @@ const Body = () => {
           {isTopRated ? "✅ Top-rated" : "⭐ Top-rated"}
         </button>
       </div>
-      <div className="res-container">
-        {restaurantList.length === 0 ? (
-          <div className="no-results">
-            <h2>😕 No restaurants found</h2>
-            <p>Try a different search or remove filters</p>
-          </div>
-        ) : (
-          restaurantList.map((restaurant, index) => (
-            <RestaurantCard key={index} resData={restaurant} index={index} />
-          ))
-        )}
-      </div>
+
+      {isLoading && <p className="loading">Loading restaurants...</p>}
+      {error && <p className="error">{error}</p>}
+
+      {!isLoading && !error && (
+        <div className="res-container">
+          {restaurantList.length === 0 ? (
+            <div className="no-results">
+              <h2>😕 No restaurants found</h2>
+              <p>Try a different search or remove filters</p>
+            </div>
+          ) : (
+            restaurantList.map((restaurant, index) => (
+              <RestaurantCard key={index} resData={restaurant} index={index} />
+            ))
+          )}
+        </div>
+      )}
     </div>
   );
 };
