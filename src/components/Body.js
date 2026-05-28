@@ -34,6 +34,8 @@ const Body = () => {
         json?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants;
 
+          console.log('res' , restaurants)
+
       if (!restaurants || !Array.isArray(restaurants)) {
         throw new Error("Invalid data structure received from API");
       }
