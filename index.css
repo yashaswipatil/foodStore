@@ -240,3 +240,164 @@
     margin-bottom: 0.5rem;
     color: #444;
 }
+
+/* Restaurant Menu Page */
+.menu-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: inherit;
+}
+
+/* Header */
+.res-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border-bottom: 3px solid #534AB7;
+}
+
+.res-header-info h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #282c3f;
+}
+
+.res-header-info .cuisines {
+    color: #686b78;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.res-header-info .location {
+    color: #686b78;
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+.res-header-info .cost {
+    color: #282c3f;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.res-header-stats {
+    text-align: center;
+    border: 1px solid #e9e9eb;
+    border-radius: 12px;
+    padding: 16px 20px;
+    min-width: 120px;
+}
+
+.rating-badge {
+    font-size: 22px;
+    font-weight: 700;
+    color: #3d9b6d;
+    margin-bottom: 4px;
+}
+
+.total-ratings {
+    font-size: 12px;
+    color: #686b78;
+    margin-bottom: 8px;
+}
+
+.delivery-time {
+    font-size: 14px;
+    font-weight: 600;
+    color: #282c3f;
+}
+
+.distance {
+    font-size: 12px;
+    color: #686b78;
+}
+
+/* Menu */
+.menu-container {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.menu-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #282c3f;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f0f0f5;
+}
+
+.menu-category {
+    margin-bottom: 28px;
+}
+
+.category-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #282c3f;
+    padding: 10px 0;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #f0f0f5;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px dashed #f0f0f5;
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.menu-item-info h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #282c3f;
+    margin-bottom: 6px;
+}
+
+.item-description {
+    font-size: 13px;
+    color: #93959f;
+    margin-bottom: 8px;
+    max-width: 500px;
+    line-height: 1.4;
+}
+
+.item-price {
+    font-size: 15px;
+    font-weight: 600;
+    color: #282c3f;
+}
+
+.add-btn {
+    background: white;
+    color: #534AB7;
+    border: 2px solid #534AB7;
+    border-radius: 8px;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+
+.add-btn:hover {
+    background: #fc8019;
+    color: white;
+}
