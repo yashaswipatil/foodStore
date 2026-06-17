@@ -10,13 +10,15 @@ import Cart from "./components/Cart";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Contact from "./components/Contact/Contact";
 import { CartProvider } from "./utils/cartContext";
+import OnlineStatus from "./components/OnlineStatus";
 
 
 const AppLayout = () => {
   return (
     <div className="app">
+      <OnlineStatus />
       <Header />
-      <Outlet/>
+      <Outlet />
     </div>
   );
 };
