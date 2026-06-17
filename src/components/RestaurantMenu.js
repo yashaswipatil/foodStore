@@ -1,9 +1,10 @@
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
-
+import { useCart } from "../utils/cartContext";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
+  const { addItem } = useCart();
 
   const { resInfo, loading, error } = useRestaurantMenu(resId);
 
@@ -89,7 +90,22 @@ const RestaurantMenu = () => {
                         </p>
                       </div>
 
-                      <button className="add-btn">ADD +</button>
+                      <button
+                        className="add-btn"
+                        onClick={() =>
+                          addItem({
+                            id: info?.id,
+                            name: info?.name,
+                            restaurant: name,
+                            price:
+                              (info?.price || info?.defaultPrice || 0) / 100,
+                            qty: 1,
+                            emoji: "🍽️",
+                          })
+                        }
+                      >
+                        ADD +
+                      </button>
                     </div>
                   );
                 })}

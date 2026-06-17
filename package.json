@@ -24,7 +24,7 @@
   "homepage": "https://github.com/yashaswipatil/foodStore#readme",
   "devDependencies": {
     "eslint": "^9.29.0",
-    "parcel": "^2.15.2"
+    "parcel": "^2.16.4"
   },
   "dependencies": {
     "react": "^19.1.0",
