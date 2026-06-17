@@ -4,10 +4,11 @@ import Header from "./components/Header";
 import Body from "./components/Body";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import About from "./components/About";
-import Contact from "./components/Contact";
+
 import ErrorComponent from "./components/Error";
 import Cart from "./components/Cart";
 import RestaurantMenu from "./components/RestaurantMenu";
+import Contact from "./components/Contact/Contact";
 
 
 const AppLayout = () => {
