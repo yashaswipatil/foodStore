@@ -23,12 +23,15 @@
   },
   "homepage": "https://github.com/yashaswipatil/foodStore#readme",
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.1",
     "eslint": "^9.29.0",
-    "parcel": "^2.16.4"
+    "parcel": "^2.16.4",
+    "postcss": "^8.5.15"
   },
   "dependencies": {
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-router-dom": "^6.30.3"
+    "react-router-dom": "^6.30.3",
+    "tailwindcss": "^4.3.1"
   }
 }

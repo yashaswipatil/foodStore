@@ -11,22 +11,22 @@ const features = [
   {
     icon: "🍔",
     title: "Top Local Restaurants",
-    desc: "We partner only with the best-rated local spots — from cozy cafés to celebrated fine-dining kitchens.",
+    desc: "We partner only with the best-rated local spots.",
   },
   {
     icon: "⚡",
-    title: "Fast & Reliable Delivery",
-    desc: "Our optimized delivery network ensures your food arrives hot, fresh, and on time — every time.",
+    title: "Fast Delivery",
+    desc: "Hot and fresh food delivered quickly.",
   },
   {
     icon: "📍",
-    title: "Real-Time Tracking",
-    desc: "Watch your order journey live — from the kitchen to your door, never wonder where your food is.",
+    title: "Live Tracking",
+    desc: "Track your order in real-time.",
   },
   {
     icon: "🎁",
     title: "Exclusive Offers",
-    desc: "Unlock member-only deals, seasonal discounts, and surprise rewards just for ordering with us.",
+    desc: "Discounts and rewards for users.",
   },
 ];
 
@@ -38,100 +38,33 @@ const team = [
 
 const About = () => {
   return (
-    <div
-      style={{
-        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-        background: "#fff",
-        minHeight: "100vh",
-        color: "#111",
-      }}
-    >
+    <div className="min-h-screen bg-gray-50 text-slate-800">
       {/* Hero */}
-      <section
-        style={{
-          background: "#534AB7",
-          color: "#fff",
-          padding: "64px 2rem 56px",
-          textAlign: "center",
-        }}
-      >
-        <p
-          style={{
-            fontSize: "11px",
-            letterSpacing: "0.16em",
-            textTransform: "uppercase",
-            color: "rgba(255,255,255,0.65)",
-            marginBottom: "14px",
-            fontWeight: 500,
-          }}
-        >
+      <section className="bg-orange-500 px-6 py-16 text-center text-white">
+        <p className="mb-3 text-xs uppercase tracking-widest text-white/70">
           Our Story
         </p>
-        <h1
-          style={{
-            fontSize: "clamp(36px, 5vw, 60px)",
-            fontWeight: 600,
-            lineHeight: 1.1,
-            margin: "0 auto 20px",
-            maxWidth: "680px",
-            letterSpacing: "-0.02em",
-          }}
-        >
+
+        <h1 className="mx-auto mb-4 max-w-2xl text-4xl font-bold md:text-5xl">
           Food made for{" "}
-          <span style={{ color: "#FAC775", fontStyle: "italic" }}>
-            real life.
-          </span>
+          <span className="text-yellow-200 italic">real life.</span>
         </h1>
-        <p
-          style={{
-            fontSize: "16px",
-            color: "rgba(255,255,255,0.7)",
-            maxWidth: "460px",
-            margin: "0 auto",
-            lineHeight: 1.7,
-            fontWeight: 400,
-          }}
-        >
+
+        <p className="mx-auto max-w-md text-sm text-white/70">
           Chef's Food was built on a simple belief — everyone deserves a great
           meal, delivered without the fuss.
         </p>
       </section>
 
       {/* Stats */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))",
-          borderBottom: "0.5px solid #eee",
-        }}
-      >
-        {stats.map((s, i) => (
+      <div className="grid grid-cols-2 border-b bg-white md:grid-cols-4">
+        {stats.map((s) => (
           <div
             key={s.label}
-            style={{
-              padding: "28px 16px",
-              textAlign: "center",
-              borderRight: i < stats.length - 1 ? "0.5px solid #eee" : "none",
-            }}
+            className="border-r p-6 text-center last:border-none"
           >
-            <div
-              style={{
-                fontSize: "28px",
-                fontWeight: 600,
-                color: "#534AB7",
-                marginBottom: "6px",
-              }}
-            >
-              {s.value}
-            </div>
-            <div
-              style={{
-                fontSize: "12px",
-                color: "#888",
-                letterSpacing: "0.05em",
-                textTransform: "uppercase",
-              }}
-            >
+            <div className="text-2xl font-bold text-orange-500">{s.value}</div>
+            <div className="mt-1 text-xs uppercase tracking-wider text-slate-500">
               {s.label}
             </div>
           </div>
@@ -139,246 +72,73 @@ const About = () => {
       </div>
 
       {/* Story */}
-      <section
-        style={{ maxWidth: "860px", margin: "0 auto", padding: "64px 2rem" }}
-      >
-        <p
-          style={{
-            fontSize: "11px",
-            letterSpacing: "0.16em",
-            textTransform: "uppercase",
-            color: "#534AB7",
-            fontWeight: 500,
-            marginBottom: "12px",
-          }}
-        >
+      <section className="mx-auto max-w-5xl px-6 py-16">
+        <p className="text-xs uppercase tracking-widest text-orange-500">
           Who We Are
         </p>
-        <h2
-          style={{
-            fontSize: "clamp(24px, 3.5vw, 38px)",
-            fontWeight: 600,
-            letterSpacing: "-0.02em",
-            color: "#111",
-            lineHeight: 1.2,
-            marginBottom: "24px",
-          }}
-        >
+
+        <h2 className="mt-2 text-3xl font-bold md:text-4xl">
           Born from hunger, built with care.
         </h2>
-        <p
-          style={{
-            fontSize: "15px",
-            lineHeight: 1.75,
-            color: "#555",
-            maxWidth: "620px",
-            marginBottom: "16px",
-          }}
-        >
+
+        <p className="mt-6 leading-relaxed text-slate-600">
           It started with a late-night craving and a frustrating app experience.
-          We knew there had to be a better way. Chef's Food launched to connect
-          people with the restaurants they love — no hidden fees, no cold
-          surprises, no guesswork. Just great food, at your door, exactly when
-          you need it.
+          We built Chef's Food to make ordering simple and reliable.
         </p>
-        <p
-          style={{
-            fontSize: "15px",
-            lineHeight: 1.75,
-            color: "#888",
-            maxWidth: "620px",
-          }}
-        >
-          Today we serve thousands of customers across the city, partnering with
-          over 200 local restaurants who share our obsession with quality and
-          speed.
+
+        <p className="mt-4 text-slate-500">
+          Today we serve thousands of customers across the city with 200+
+          restaurant partners.
         </p>
       </section>
 
-      <div style={{ borderTop: "0.5px solid #eee" }} />
-
       {/* Features */}
-      <section
-        style={{ maxWidth: "860px", margin: "0 auto", padding: "64px 2rem" }}
-      >
-        <p
-          style={{
-            fontSize: "11px",
-            letterSpacing: "0.16em",
-            textTransform: "uppercase",
-            color: "#534AB7",
-            fontWeight: 500,
-            marginBottom: "12px",
-          }}
-        >
+      <section className="mx-auto max-w-5xl px-6 py-16">
+        <p className="text-xs uppercase tracking-widest text-orange-500">
           What We Offer
         </p>
-        <h2
-          style={{
-            fontSize: "clamp(24px, 3.5vw, 38px)",
-            fontWeight: 600,
-            letterSpacing: "-0.02em",
-            color: "#111",
-            lineHeight: 1.2,
-            marginBottom: "32px",
-          }}
-        >
+
+        <h2 className="mt-2 text-3xl font-bold md:text-4xl">
           Everything you need, nothing you don't.
         </h2>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            flexWrap: "wrap",
-            gap: "1rem",
-          }}
-        >
+
+        <div className="mt-8 grid gap-6 sm:grid-cols-2">
           {features.map((f) => (
             <div
               key={f.title}
-              style={{
-                width: "16.25rem",
-                background: "rgb(237, 233, 233)",
-                borderRadius: "1rem",
-                boxShadow: "0 0.25rem 0.75rem rgba(0,0,0,0.1)",
-                overflow: "hidden",
-                padding: "1.5rem 1rem 1.5rem",
-                transition: "transform 0.2s ease, box-shadow 0.2s ease",
-                cursor: "default",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-5px)";
-                e.currentTarget.style.boxShadow =
-                  "0 0.5rem 1.25rem rgba(0,0,0,0.15)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow =
-                  "0 0.25rem 0.75rem rgba(0,0,0,0.1)";
-              }}
+              className="rounded-2xl bg-white p-6 shadow-md transition hover:-translate-y-1 hover:shadow-xl"
             >
-              <span
-                style={{
-                  fontSize: "28px",
-                  marginBottom: "12px",
-                  display: "block",
-                }}
-              >
-                {f.icon}
-              </span>
-              <h3
-                style={{
-                  fontSize: "1.1rem",
-                  fontWeight: 600,
-                  color: "#333",
-                  margin: "0 0 8px",
-                }}
-              >
-                {f.title}
-              </h3>
-              <h4
-                style={{
-                  fontSize: "0.9rem",
-                  color: "#666",
-                  margin: 0,
-                  lineHeight: 1.6,
-                  fontWeight: 400,
-                }}
-              >
-                {f.desc}
-              </h4>
+              <div className="text-3xl">{f.icon}</div>
+              <h3 className="mt-3 text-lg font-semibold">{f.title}</h3>
+              <p className="mt-2 text-sm text-slate-500">{f.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <div style={{ borderTop: "0.5px solid #eee" }} />
-
       {/* Team */}
-      <section
-        style={{ maxWidth: "860px", margin: "0 auto", padding: "64px 2rem" }}
-      >
-        <p
-          style={{
-            fontSize: "11px",
-            letterSpacing: "0.16em",
-            textTransform: "uppercase",
-            color: "#534AB7",
-            fontWeight: 500,
-            marginBottom: "12px",
-          }}
-        >
+      <section className="mx-auto max-w-5xl px-6 py-16">
+        <p className="text-xs uppercase tracking-widest text-orange-500">
           The Team
         </p>
-        <h2
-          style={{
-            fontSize: "clamp(24px, 3.5vw, 38px)",
-            fontWeight: 600,
-            letterSpacing: "-0.02em",
-            color: "#111",
-            lineHeight: 1.2,
-            marginBottom: "32px",
-          }}
-        >
+
+        <h2 className="mt-2 text-3xl font-bold md:text-4xl">
           People behind the plate.
         </h2>
-        <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
           {team.map((t) => (
             <div
               key={t.name}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "14px",
-                background: "rgb(237, 233, 233)",
-                borderRadius: "1rem",
-                boxShadow: "0 0.25rem 0.75rem rgba(0,0,0,0.1)",
-                padding: "1rem 1.25rem",
-                flex: "1 1 200px",
-                transition: "transform 0.2s ease, box-shadow 0.2s ease",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-5px)";
-                e.currentTarget.style.boxShadow =
-                  "0 0.5rem 1.25rem rgba(0,0,0,0.15)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow =
-                  "0 0.25rem 0.75rem rgba(0,0,0,0.1)";
-              }}
+              className="flex items-center gap-4 rounded-2xl bg-white p-4 shadow-md transition hover:-translate-y-1"
             >
-              <div
-                style={{
-                  width: "44px",
-                  height: "44px",
-                  borderRadius: "50%",
-                  background: "#534AB7",
-                  color: "#fff",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "13px",
-                  fontWeight: 600,
-                  flexShrink: 0,
-                }}
-              >
+              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-orange-500 text-sm font-bold text-white">
                 {t.initials}
               </div>
+
               <div>
-                <p
-                  style={{
-                    fontSize: "15px",
-                    fontWeight: 600,
-                    color: "#333",
-                    margin: "0 0 3px",
-                  }}
-                >
-                  {t.name}
-                </p>
-                <p style={{ fontSize: "13px", color: "#666", margin: 0 }}>
-                  {t.role}
-                </p>
+                <p className="font-semibold">{t.name}</p>
+                <p className="text-sm text-slate-500">{t.role}</p>
               </div>
             </div>
           ))}
@@ -386,55 +146,14 @@ const About = () => {
       </section>
 
       {/* CTA */}
-      <section
-        style={{
-          background: "#534AB7",
-          color: "#fff",
-          textAlign: "center",
-          padding: "72px 2rem",
-        }}
-      >
-        <h2
-          style={{
-            fontSize: "clamp(26px, 4vw, 44px)",
-            fontWeight: 600,
-            letterSpacing: "-0.02em",
-            marginBottom: "16px",
-            lineHeight: 1.1,
-          }}
-        >
-          Ready to order?
-        </h2>
-        <p
-          style={{
-            fontSize: "15px",
-            color: "rgba(255,255,255,0.7)",
-            marginBottom: "32px",
-          }}
-        >
+      <section className="bg-orange-500 px-6 py-16 text-center text-white">
+        <h2 className="text-3xl font-bold md:text-4xl">Ready to order?</h2>
+
+        <p className="mt-3 text-white/70">
           Crave it, tap it, get it — anytime, anywhere.
         </p>
-        <button
-          style={{
-            padding: "9px 28px",
-            fontSize: "14px",
-            fontWeight: 500,
-            border: "1.5px solid #fff",
-            borderRadius: "20px",
-            background: "transparent",
-            color: "#fff",
-            cursor: "pointer",
-            transition: "all 0.2s",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.background = "#fff";
-            e.currentTarget.style.color = "#534AB7";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = "transparent";
-            e.currentTarget.style.color = "#fff";
-          }}
-        >
+
+        <button className="mt-6 rounded-full border border-white px-6 py-2 font-medium transition hover:bg-white hover:text-orange-500">
           Explore Restaurants
         </button>
       </section>

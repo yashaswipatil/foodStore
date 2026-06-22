@@ -1,87 +1,37 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const ErrorComponent = () => {
+  const navigate = useNavigate();
+
   return (
-    <div
-      style={{
-        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-        background: "#fff",
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        textAlign: "center",
-        padding: "2rem",
-      }}
-    >
-      <div style={{ position: "relative", marginBottom: "8px" }}>
-        <span
-          style={{
-            fontSize: "clamp(100px, 18vw, 180px)",
-            fontWeight: 700,
-            color: "rgb(237, 233, 233)",
-            lineHeight: 1,
-            letterSpacing: "-0.04em",
-            userSelect: "none",
-          }}
-        >
+    <div className="flex min-h-screen flex-col items-center justify-center bg-gray-50 px-6 text-center">
+      {/* 404 Visual */}
+      <div className="relative mb-4">
+        <span className="select-none text-[120px] font-bold leading-none text-slate-200 md:text-[180px]">
           404
         </span>
-        <span
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            fontSize: "48px",
-          }}
-        >
+
+        <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl">
           🍽️
         </span>
       </div>
 
-      <h1
-        style={{
-          fontSize: "clamp(22px, 4vw, 36px)",
-          fontWeight: 600,
-          color: "#111",
-          letterSpacing: "-0.02em",
-          margin: "0 0 12px",
-        }}
-      >
-        Oops! Page{" "}
-        <span style={{ color: "#534AB7", fontStyle: "italic" }}>
-          not found.
-        </span>
+      {/* Heading */}
+      <h1 className="mb-3 text-2xl font-semibold tracking-tight text-slate-800 md:text-4xl">
+        Oops! Page <span className="italic text-orange-500">not found.</span>
       </h1>
 
-      <p
-        style={{
-          fontSize: "15px",
-          color: "#888",
-          maxWidth: "380px",
-          lineHeight: 1.7,
-          margin: "0 auto 32px",
-        }}
-      >
-        Looks like this page got lost in the kitchen. Let's get you back on
+      {/* Description */}
+      <p className="mb-8 max-w-md text-sm leading-relaxed text-slate-500">
+        Looks like this page got lost in the kitchen. Let’s get you back on
         track.
       </p>
 
+      {/* Button */}
       <button
-        onClick={() => (window.location.href = "/")}
-        style={{
-          padding: "8px 28px",
-          fontSize: "14px",
-          fontWeight: 500,
-          border: "1.5px solid #534AB7",
-          borderRadius: "20px",
-          background: "#534AB7",
-          color: "#fff",
-          cursor: "pointer",
-          fontFamily: "inherit",
-        }}
+        onClick={() => navigate("/")}
+        className="rounded-full bg-orange-500 px-6 py-2 text-sm font-medium text-white transition hover:bg-orange-600"
       >
         Go to Home
       </button>

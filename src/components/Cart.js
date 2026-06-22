@@ -2,71 +2,25 @@ import React from "react";
 import { useCart } from "../utils/cartContext";
 
 const Cart = () => {
-  const {
-    items,
-    updateQty,
-    removeItem,
-    clearCart,
-  } = useCart();
+  const { items, updateQty, removeItem, clearCart } = useCart();
 
-  const subtotal = items.reduce(
-    (sum, item) => sum + item.price * item.qty,
-    0
-  );
+  const subtotal = items.reduce((sum, item) => sum + item.price * item.qty, 0);
 
   const deliveryFee = items.length > 0 ? 49 : 0;
   const total = subtotal + deliveryFee;
 
   return (
-    <div
-      style={{
-        fontFamily:
-          "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-        background: "#fff",
-        minHeight: "100vh",
-        color: "#111",
-      }}
-    >
+    <div className="min-h-screen bg-gray-50 text-slate-800">
       {/* Hero */}
-      <section
-        style={{
-          background: "#534AB7",
-          color: "#fff",
-          padding: "40px 2rem 36px",
-        }}
-      >
-        <p
-          style={{
-            fontSize: "11px",
-            letterSpacing: "0.16em",
-            textTransform: "uppercase",
-            color: "rgba(255,255,255,0.65)",
-            marginBottom: "10px",
-            fontWeight: 500,
-          }}
-        >
+      <section className="bg-orange-500 px-6 py-10 text-white">
+        <p className="mb-2 text-xs tracking-[0.2em] uppercase text-white/70">
           Your Order
         </p>
 
-        <h1
-          style={{
-            fontSize: "clamp(28px, 4vw, 44px)",
-            fontWeight: 600,
-            letterSpacing: "-0.02em",
-            margin: 0,
-          }}
-        >
+        <h1 className="text-3xl font-bold md:text-4xl">
           {items.length > 0 ? (
             <>
-              Your{" "}
-              <span
-                style={{
-                  color: "#FAC775",
-                  fontStyle: "italic",
-                }}
-              >
-                Cart
-              </span>
+              Your <span className="text-yellow-200 italic">Cart</span>
             </>
           ) : (
             "Cart is Empty 🍽️"
@@ -74,200 +28,66 @@ const Cart = () => {
         </h1>
       </section>
 
-      <div
-        style={{
-          maxWidth: "860px",
-          margin: "0 auto",
-          padding: "40px 2rem 64px",
-          display: "flex",
-          gap: "2rem",
-          flexWrap: "wrap",
-          alignItems: "flex-start",
-        }}
-      >
-        {/* Cart Items */}
-        <div style={{ flex: "1 1 420px" }}>
+      <div className="mx-auto flex max-w-7xl flex-col gap-8 px-6 py-10 lg:flex-row">
+        {/* Left - Items */}
+        <div className="flex-1">
           {items.length === 0 ? (
-            <div
-              style={{
-                textAlign: "center",
-                padding: "4rem 2rem",
-              }}
-            >
-              <span
-                style={{
-                  fontSize: "64px",
-                  display: "block",
-                  marginBottom: "16px",
-                }}
-              >
-                🛒
-              </span>
+            <div className="rounded-2xl bg-white p-10 text-center shadow-md">
+              <div className="mb-4 text-6xl">🛒</div>
 
-              <h2
-                style={{
-                  fontSize: "1.4rem",
-                  color: "#444",
-                  marginBottom: "8px",
-                }}
-              >
-                Nothing here yet!
-              </h2>
+              <h2 className="mb-2 text-xl font-semibold">Nothing here yet!</h2>
 
-              <p
-                style={{
-                  color: "#888",
-                  fontSize: "14px",
-                  marginBottom: "24px",
-                }}
-              >
-                Looks like you haven't added anything
-                to your cart.
+              <p className="mb-6 text-sm text-slate-500">
+                Looks like you haven't added anything to your cart.
               </p>
 
               <button
-                onClick={() =>
-                  (window.location.href = "/")
-                }
-                style={{
-                  padding: "8px 28px",
-                  fontSize: "14px",
-                  fontWeight: 500,
-                  border: "1.5px solid #534AB7",
-                  borderRadius: "20px",
-                  background: "#534AB7",
-                  color: "#fff",
-                  cursor: "pointer",
-                }}
+                onClick={() => (window.location.href = "/")}
+                className="rounded-full bg-orange-500 px-6 py-2 text-white transition hover:bg-orange-600"
               >
                 Browse Restaurants
               </button>
             </div>
           ) : (
             <>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "1rem",
-                }}
-              >
+              <div className="space-y-4">
                 {items.map((item) => (
                   <div
                     key={item.id}
-                    style={{
-                      background:
-                        "rgb(237, 233, 233)",
-                      borderRadius: "1rem",
-                      boxShadow:
-                        "0 0.25rem 0.75rem rgba(0,0,0,0.1)",
-                      padding: "1.25rem 1rem",
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "16px",
-                    }}
+                    className="flex items-center gap-4 rounded-2xl bg-white p-4 shadow-sm transition hover:shadow-md"
                   >
                     {/* Emoji */}
-                    <div
-                      style={{
-                        width: "56px",
-                        height: "56px",
-                        borderRadius: "12px",
-                        background: "#fff",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        fontSize: "28px",
-                        flexShrink: 0,
-                      }}
-                    >
+                    <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gray-100 text-2xl">
                       {item.emoji || "🍽️"}
                     </div>
 
                     {/* Info */}
-                    <div
-                      style={{
-                        flex: 1,
-                        minWidth: 0,
-                      }}
-                    >
-                      <h3
-                        style={{
-                          fontSize: "15px",
-                          fontWeight: 600,
-                          color: "#333",
-                          margin: "0 0 4px",
-                        }}
-                      >
-                        {item.name}
-                      </h3>
+                    <div className="min-w-0 flex-1">
+                      <h3 className="truncate font-semibold">{item.name}</h3>
 
-                      <p
-                        style={{
-                          fontSize: "13px",
-                          color: "#888",
-                          margin: "0 0 8px",
-                        }}
-                      >
+                      <p className="truncate text-sm text-slate-500">
                         {item.restaurant}
                       </p>
 
-                      <p
-                        style={{
-                          fontSize: "15px",
-                          fontWeight: 600,
-                          color: "#534AB7",
-                          margin: 0,
-                        }}
-                      >
-                        ₹
-                        {(
-                          item.price * item.qty
-                        ).toLocaleString()}
+                      <p className="mt-1 font-semibold text-orange-500">
+                        ₹{(item.price * item.qty).toLocaleString()}
                       </p>
                     </div>
 
-                    {/* Quantity Controls */}
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "10px",
-                      }}
-                    >
+                    {/* Quantity */}
+                    <div className="flex items-center gap-3">
                       <button
-                        onClick={() =>
-                          updateQty(item.id, -1)
-                        }
-                        style={{
-                          width: "30px",
-                          height: "30px",
-                          borderRadius: "50%",
-                          border:
-                            "1.5px solid #534AB7",
-                          background: "transparent",
-                          color: "#534AB7",
-                          cursor: "pointer",
-                        }}
+                        onClick={() => updateQty(item.id, -1)}
+                        className="h-8 w-8 rounded-full border border-orange-500 text-orange-500 hover:bg-orange-50"
                       >
                         −
                       </button>
 
-                      <span>{item.qty}</span>
+                      <span className="w-4 text-center">{item.qty}</span>
 
                       <button
-                        onClick={() =>
-                          updateQty(item.id, 1)
-                        }
-                        style={{
-                          width: "30px",
-                          height: "30px",
-                          borderRadius: "50%",
-                          border: "none",
-                          background: "#534AB7",
-                          color: "#fff",
-                          cursor: "pointer",
-                        }}
+                        onClick={() => updateQty(item.id, 1)}
+                        className="h-8 w-8 rounded-full bg-orange-500 text-white hover:bg-orange-600"
                       >
                         +
                       </button>
@@ -275,16 +95,8 @@ const Cart = () => {
 
                     {/* Remove */}
                     <button
-                      onClick={() =>
-                        removeItem(item.id)
-                      }
-                      style={{
-                        background: "none",
-                        border: "none",
-                        fontSize: "18px",
-                        cursor: "pointer",
-                        color: "#999",
-                      }}
+                      onClick={() => removeItem(item.id)}
+                      className="text-lg text-slate-400 hover:text-red-500"
                     >
                       ✕
                     </button>
@@ -294,14 +106,7 @@ const Cart = () => {
 
               <button
                 onClick={clearCart}
-                style={{
-                  marginTop: "16px",
-                  padding: "8px 20px",
-                  borderRadius: "20px",
-                  border: "1px solid #ddd",
-                  background: "transparent",
-                  cursor: "pointer",
-                }}
+                className="mt-4 rounded-full border px-5 py-2 text-sm hover:bg-gray-100"
               >
                 Clear Cart
               </button>
@@ -309,108 +114,37 @@ const Cart = () => {
           )}
         </div>
 
-        {/* Summary */}
+        {/* Right - Summary */}
         {items.length > 0 && (
-          <div
-            style={{
-              flex: "0 1 280px",
-              position: "sticky",
-              top: "80px",
-            }}
-          >
-            <div
-              style={{
-                background:
-                  "rgb(237, 233, 233)",
-                borderRadius: "1rem",
-                boxShadow:
-                  "0 0.25rem 0.75rem rgba(0,0,0,0.1)",
-                padding: "1.5rem",
-              }}
-            >
-              <h2
-                style={{
-                  fontSize: "16px",
-                  marginBottom: "20px",
-                }}
-              >
-                Order Summary
-              </h2>
+          <div className="w-full lg:w-80">
+            <div className="sticky top-24 rounded-2xl bg-white p-6 shadow-md">
+              <h2 className="mb-4 text-lg font-semibold">Order Summary</h2>
 
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "12px",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent:
-                      "space-between",
-                  }}
-                >
+              <div className="space-y-3 text-sm">
+                <div className="flex justify-between">
                   <span>
-                    Subtotal (
-                    {items.reduce(
-                      (sum, item) =>
-                        sum + item.qty,
-                      0
-                    )}{" "}
+                    Subtotal ({items.reduce((sum, item) => sum + item.qty, 0)}{" "}
                     items)
                   </span>
-
-                  <span>
-                    ₹{subtotal.toLocaleString()}
-                  </span>
+                  <span>₹{subtotal.toLocaleString()}</span>
                 </div>
 
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent:
-                      "space-between",
-                  }}
-                >
+                <div className="flex justify-between">
                   <span>Delivery Fee</span>
                   <span>₹{deliveryFee}</span>
                 </div>
 
                 <hr />
 
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent:
-                      "space-between",
-                    fontWeight: "bold",
-                  }}
-                >
+                <div className="flex justify-between font-bold">
                   <span>Total</span>
-
-                  <span
-                    style={{
-                      color: "#534AB7",
-                    }}
-                  >
+                  <span className="text-orange-500">
                     ₹{total.toLocaleString()}
                   </span>
                 </div>
               </div>
 
-              <button
-                style={{
-                  width: "100%",
-                  marginTop: "20px",
-                  padding: "10px",
-                  border: "none",
-                  borderRadius: "20px",
-                  background: "#534AB7",
-                  color: "#fff",
-                  cursor: "pointer",
-                }}
-              >
+              <button className="mt-6 w-full rounded-full bg-orange-500 py-2 text-white hover:bg-orange-600">
                 Proceed to Checkout →
               </button>
             </div>
@@ -422,4 +156,3 @@ const Cart = () => {
 };
 
 export default Cart;
-

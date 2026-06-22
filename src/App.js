@@ -8,7 +8,7 @@ import About from "./components/About";
 import ErrorComponent from "./components/Error";
 import Cart from "./components/Cart";
 import RestaurantMenu from "./components/RestaurantMenu";
-import Contact from "./components/Contact/Contact";
+import Contact from "./components/Contact";
 import { CartProvider } from "./utils/cartContext";
 import OnlineStatus from "./components/OnlineStatus";
 
